@@ -1,37 +1,25 @@
 {
-  "name": "gsu-ai-website",
+  "name": "gsu-ai-club-studio",
   "private": true,
   "version": "1.0.0",
-  "main": "package.json",
-  "license": "UNLICENSED",
+  "description": "Sanity Studio for GSU AI Club website",
+  "keywords": [
+    "sanity"
+  ],
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy": "sanity deploy"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
-    "@sanity/vision": "^4.6.1",
-    "react": "^19.1",
-    "react-dom": "^19.1",
-    "sanity": "^4.6.1",
-    "styled-components": "^6.1.18"
+    "@sanity/vision": "^4.10.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.68.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^5.0.2",
-    "@types/react": "^19.1",
-    "eslint": "^9.28",
-    "prettier": "^3.5",
-    "typescript": "^5.8"
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
+    "@types/react": "^18.3.13"
   }
 }
