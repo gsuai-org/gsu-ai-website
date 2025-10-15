@@ -34,14 +34,14 @@ export default function ParticleBackground() {
               type: 'circle',
               stroke: {
                 width: 0,
-                color: '#000000'
+                color: '#fffff'
               },
               polygon: {
                 nb_sides: 4
               }
             },
             opacity: {
-              value: 0.3367165327817598,
+              value: 1,
               random: false,
               anim: {
                 enable: false,
@@ -97,7 +97,7 @@ export default function ParticleBackground() {
             },
             modes: {
               grab: {
-                distance: 400,
+                distance: 200,
                 line_linked: {
                   opacity: 1
                 }
@@ -140,7 +140,7 @@ export default function ParticleBackground() {
     <div
       id="particles-js"
       className="absolute inset-0 w-full h-full"
-      style={{ background: '#ffffff' }}
+      style={{ background: 'transparent' }}
     />
   )
 }

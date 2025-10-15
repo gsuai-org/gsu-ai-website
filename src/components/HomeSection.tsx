@@ -31,50 +31,47 @@ export default function HomeSection() {
 
   if (loading) {
     return (
-      <section className="min-h-screen flex items-center justify-center bg-gsu-blue-500">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gsu-lime-500"></div>
       </section>
     )
   }
 
   if (!homeData) {
     return (
-      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gsu-blue-500 to-gsu-blue-700 text-white">
+      <section id="home" className="min-h-screen flex items-center justify-center text-gsu-white bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600">
         <div className="text-center px-6 max-w-4xl mx-auto">
           <div className="animate-pulse">
-            <div className="h-16 bg-white/20 rounded mb-6 w-3/4 mx-auto"></div>
-            <div className="h-8 bg-white/20 rounded mb-8 w-2/3 mx-auto"></div>
-            <div className="h-12 bg-white/20 rounded w-48 mx-auto"></div>
+            <div className="h-16 bg-gsu-white/20 rounded mb-6 w-3/4 mx-auto"></div>
+            <div className="h-8 bg-gsu-white/20 rounded mb-8 w-2/3 mx-auto"></div>
+            <div className="h-12 bg-gsu-white/20 rounded w-48 mx-auto"></div>
           </div>
-          <p className="text-gsu-blue-100 mt-4">Loading content from Sanity...</p>
+          <p className="text-gsu-white/70 mt-4">Loading content</p>
         </div>
       </section>
     )
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Particle Background */}
-      <div className="absolute inset-0 z-[-1]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600">
+      {/* Particle Background - DISABLED */}
+      {/* <div className="absolute inset-0 z-[-1]">
         <ParticleBackground />
-      </div>
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-600/70 via-blue-800/80 to-blue-900/90"></div>
+      </div> */}
 
       {/* Content */}
-      <div className="relative z-[1] text-center container-custom max-w-6xl mx-auto text-white">
+      <div className="relative text-center container-custom max-w-6xl mx-auto text-gsu-white">
         <div className="animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold mb-6 text-shadow-lg leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold mb-6 text-shadow-lg leading-tight text-gsu-white">
             {homeData.title}
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-12 text-gsu-blue-100 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-12 text-gsu-white/90 max-w-4xl mx-auto leading-relaxed font-light">
             {homeData.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="btn-secondary text-lg px-8 py-4 rounded-xl shadow-large hover:scale-105 transform transition-all duration-300">
-              <Link href="https://pin.gsu.edu/organization/ai-club" target="_blank" rel="noopener noreferrer">Join Us Today</Link>  
-            </button>
+            <Link href="https://pin.gsu.edu/organization/ai-club" target="_blank" rel="noopener noreferrer" className="glass-effect text-gsu-white hover:text-gsu-lime-500 px-8 py-4 rounded-xl font-semibold hover:border-gsu-lime-500/50 transition-all duration-200 text-lg">
+              Join Us Today
+            </Link>
           </div>
         </div>
       </div>

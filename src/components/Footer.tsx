@@ -12,18 +12,18 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-gsu-blue-900 text-white py-12 border-t border-white/20">
+    <footer className="bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 text-gsu-white py-12 border-t border-gsu-white/20">
       <div className="container-custom">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Section Map */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-4">Navigate</h3>
+            <h3 className="font-heading font-bold text-xl mb-4 text-gsu-white">Navigate</h3>
             <nav className="space-y-2">
               {sections.map((section) => (
                 <Link
                   key={section.name}
                   href={section.href}
-                  className="block text-gsu-blue-100 hover:text-gsu-gold-400 transition-colors duration-300"
+                  className="block text-gsu-white/70 hover:text-gsu-lime-500 transition-colors duration-300"
                 >
                   {section.name}
                 </Link>
@@ -33,17 +33,17 @@ export default function Footer() {
 
           {/* Directory & Blog Links */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-4">Resources</h3>
+            <h3 className="font-heading font-bold text-xl mb-4 text-gsu-white">Resources</h3>
             <div className="space-y-2">
               <Link
                 href="/"
-                className="block text-gsu-blue-100 hover:text-gsu-gold-400 transition-colors duration-300"
+                className="block text-gsu-white/70 hover:text-gsu-lime-500 transition-colors duration-300"
               >
                 Directory
               </Link>
               <Link
                 href="/blog"
-                className="block text-gsu-blue-100 hover:text-gsu-gold-400 transition-colors duration-300"
+                className="block text-gsu-white/70 hover:text-gsu-lime-500 transition-colors duration-300"
               >
                 Blog
               </Link>
@@ -52,14 +52,14 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-4">Connect</h3>
-            <p className="text-gsu-blue-100 mb-4">
+            <h3 className="font-heading font-bold text-xl mb-4 text-gsu-white">Connect</h3>
+            <p className="text-gsu-white/70 mb-4">
               Join our community and stay updated with the latest AI innovations.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#contact"
-                className="text-gsu-gold-400 hover:text-gsu-gold-300 transition-colors duration-300"
+                className="text-gsu-lime-500 hover:text-gsu-lime-400 transition-colors duration-300"
                 aria-label="Contact us"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,8 +71,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-white/20 text-center">
-          <p className="text-gsu-blue-200 text-sm">
+        <div className="pt-8 border-t border-gsu-white/20 text-center">
+          <p className="text-gsu-white/70 text-sm">
             © 2025 AI Club @ GSU. All rights reserved.
           </p>
         </div>

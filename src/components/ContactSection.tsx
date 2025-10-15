@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { client } from '@/lib/sanity'
 import Footer from './Footer'
+import Link from 'next/link'  
 
 interface ContactData {
   discord?: string
@@ -33,17 +34,17 @@ export default function ContactSection() {
 
   if (!contactData) {
     return (
-      <section id="contact" className="py-20 bg-gsu-blue-800 text-white">
+      <section id="contact" className="py-20 section-padding bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 text-gsu-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-gsu-white">
               Get In Touch
             </h2>
-            <p className="text-xl text-gsu-blue-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gsu-white/80 max-w-3xl mx-auto mb-8">
               Loading contact information from Sanity...
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10">
-              <p className="text-gsu-blue-100">Please wait while we load our contact details.</p>
+            <div className="bg-gsu-white/10 backdrop-blur-sm rounded-xl p-8 border border-gsu-white/10">
+              <p className="text-gsu-white/80">Please wait while we load our contact details.</p>
             </div>
           </div>
         </div>
@@ -106,14 +107,14 @@ export default function ContactSection() {
 
   if (loading) {
     return (
-      <section className="py-20 bg-gsu-blue-800">
+      <section className="py-20 bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600">
         <div className="max-w-6xl mx-auto px-6">
           <div className="animate-pulse text-center">
-            <div className="h-8 bg-white/20 rounded mb-4 w-1/2 mx-auto"></div>
-            <div className="h-6 bg-white/20 rounded mb-8 w-2/3 mx-auto"></div>
+            <div className="h-8 bg-gsu-white/20 rounded mb-4 w-1/2 mx-auto"></div>
+            <div className="h-6 bg-gsu-white/20 rounded mb-8 w-2/3 mx-auto"></div>
             <div className="grid md:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-32 bg-white/20 rounded-lg"></div>
+                <div key={i} className="h-32 bg-gsu-white/20 rounded-lg"></div>
               ))}
             </div>
           </div>
@@ -123,22 +124,16 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-gsu-blue-800 via-gsu-blue-900 to-gsu-blue-800 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
+    <section id="contact" className="section-padding bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 text-gsu-white relative overflow-hidden">
       
       <div className="container-custom relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
           <div className="animate-slide-up">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight text-gsu-white">
               Get In Touch
             </h2>
-            <p className="text-xl lg:text-2xl text-gsu-blue-100 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gsu-white/80 max-w-4xl mx-auto leading-relaxed">
               Connect with us on social media, join our community, and stay updated on the latest AI innovations
             </p>
           </div>
@@ -153,15 +148,15 @@ export default function ContactSection() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 backdrop-blur-soft rounded-xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/20 group hover:scale-105 transform"
+                className="glass-card rounded-2xl p-8 group"
               >
                 <div className="flex items-center mb-4">
-                  <div className="text-gsu-gold-400 mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-gsu-lime-500 mr-4 group-hover:scale-110 transition-transform duration-300">
                     {link.icon}
                   </div>
-                  <h3 className="font-heading font-bold text-xl">{link.name}</h3>
+                  <h3 className="font-heading font-bold text-xl text-gsu-white">{link.name}</h3>
                 </div>
-                <p className="text-gsu-blue-100 text-base leading-relaxed">
+                <p className="text-gsu-white/70 text-base leading-relaxed">
                   {link.description}
                 </p>
               </a>
@@ -170,22 +165,22 @@ export default function ContactSection() {
         </div>
 
         {/* Contact Info */}
-        <div className="bg-white/10 backdrop-blur-soft rounded-xl p-8 lg:p-16 border border-white/20 text-center mb-16">
+        <div className="glass-card rounded-3xl p-8 lg:p-16 text-center mb-16">
           <div className="max-w-4xl mx-auto">
-            <h3 className="font-heading font-bold text-3xl lg:text-4xl mb-6">
+            <h3 className="font-heading font-bold text-3xl lg:text-4xl mb-6 text-gsu-white">
               Ready to Join the AI Revolution?
             </h3>
-            <p className="text-gsu-blue-100 text-lg lg:text-xl mb-8 leading-relaxed">
+            <p className="text-gsu-white/80 text-lg lg:text-xl mb-8 leading-relaxed">
               Whether you&apos;re a complete beginner or an experienced developer, there&apos;s a place for you in our community. 
               Join us to learn, build, and shape the future of artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-secondary text-lg px-8 py-4 hover:scale-105 transform transition-all duration-300">
+              <button className="glass-effect text-gsu-white hover:text-gsu-lime-500 px-8 py-4 rounded-xl font-semibold hover:border-gsu-lime-500/50 transition-all duration-200 text-lg">
                 Join Our Discord
               </button>
-              <button className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-gsu-blue-900 hover:scale-105 transform transition-all duration-300">
+              <Link href="https://pin.gsu.edu/organization/ai-club" target="_blank" rel="noopener noreferrer" className="glass-effect text-gsu-white hover:text-gsu-lime-500 px-8 py-4 rounded-xl font-semibold hover:border-gsu-lime-500/50 transition-all duration-200 text-lg">
                 Attend Next Event
-              </button>
+              </Link>
             </div>
           </div>
         </div>
