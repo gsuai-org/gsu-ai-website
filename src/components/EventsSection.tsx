@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { client, urlForImage } from '@/lib/sanity'
+import Link from 'next/link'
 
 interface Event {
   _id: string
@@ -194,7 +195,9 @@ export default function EventsSection() {
               Want to stay updated on all our events and announcements?
             </p>
             <button className="btn-secondary">
-              Join Our Newsletter
+              <Link href="/newsletter" target="_blank" rel="noopener noreferrer">
+                Join Our Newsletter
+              </Link>
             </button>
           </div>
         </div>

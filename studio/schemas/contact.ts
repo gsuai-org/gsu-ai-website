@@ -14,8 +14,8 @@ export default defineType({
       }),
     },
     {
-      name: 'orgWebsite',
-      title: 'Organization Website URL',
+      name: 'pinPage',
+      title: 'PIN Page URL',
       type: 'url',
       validation: (rule) => rule.uri({
         scheme: ['http', 'https'],
@@ -24,14 +24,6 @@ export default defineType({
     {
       name: 'instagram',
       title: 'Instagram Profile URL',
-      type: 'url',
-      validation: (rule) => rule.uri({
-        scheme: ['http', 'https'],
-      }),
-    },
-    {
-      name: 'twitter',
-      title: 'Twitter/X Profile URL',
       type: 'url',
       validation: (rule) => rule.uri({
         scheme: ['http', 'https'],

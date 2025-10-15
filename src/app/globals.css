@@ -9,7 +9,7 @@
   --background-start-rgb: 248, 250, 252;
   --background-end-rgb: 255, 255, 255;
   --gsu-blue: 0, 102, 204;
-  --gsu-gold: 255, 204, 0;
+  --gsu-gold: 129, 12, 168;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -156,7 +156,7 @@ body {
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, rgb(0, 102, 204), rgb(255, 204, 0));
+    background: linear-gradient(135deg, rgb(0, 102, 204), rgb(129, 12, 168));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

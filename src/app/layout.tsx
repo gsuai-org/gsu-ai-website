@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
+import Navbar from '@/components/Navbar'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -14,12 +15,15 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'GSU AI Club - Artificial Intelligence Student Organization',
+  title: 'AI Club @ GSU - Artificial Intelligence Student Organization',
   description: 'Georgia State University\'s premier AI and machine learning student organization. Join us to explore the future of artificial intelligence through workshops, projects, and networking.',
   keywords: 'GSU, AI, Artificial Intelligence, Machine Learning, Student Organization, Georgia State University',
-  authors: [{ name: 'GSU AI Club' }],
+  authors: [{ name: 'AI Club @ GSU' }],
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
-    title: 'GSU AI Club',
+    title: 'AI Club @ GSU',
     description: 'Georgia State University\'s premier AI and machine learning student organization',
     type: 'website',
   },
@@ -33,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className={`${inter.className} antialiased`}>
+        <Navbar />
         {children}
       </body>
     </html>

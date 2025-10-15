@@ -1,19 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import { client, urlForImage } from '@/lib/sanity'
+import { client } from '@/lib/sanity'
+import Link from 'next/link'
+import ParticleBackground from './ParticleBackground'
 
 interface HomeData {
   title: string
   subtitle: string
-  heroImage: {
-    asset: {
-      _ref: string
-      _type: string
-    }
-    _type: string
-  }
 }
 
 export default function HomeSection() {
@@ -60,21 +54,16 @@ export default function HomeSection() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={urlForImage(homeData.heroImage).width(1920).height(1080).url()}
-          alt="GSU AI Club Hero"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-gsu-blue-900/85 via-gsu-blue-800/75 to-gsu-blue-700/65"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+      {/* Particle Background */}
+      <div className="absolute inset-0 z-[-1]">
+        <ParticleBackground />
       </div>
 
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-600/70 via-blue-800/80 to-blue-900/90"></div>
+
       {/* Content */}
-      <div className="relative z-10 text-center container-custom max-w-6xl mx-auto text-white">
+      <div className="relative z-[1] text-center container-custom max-w-6xl mx-auto text-white">
         <div className="animate-fade-in">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold mb-6 text-shadow-lg leading-tight">
             {homeData.title}
@@ -84,22 +73,9 @@ export default function HomeSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button className="btn-secondary text-lg px-8 py-4 rounded-xl shadow-large hover:scale-105 transform transition-all duration-300">
-              Join Us Today
-            </button>
-            <button className="btn-outline text-lg px-8 py-4 rounded-xl border-white text-white hover:bg-white hover:text-gsu-blue-900 transition-all duration-300 hover:scale-105 transform">
-              Learn More
+              <Link href="https://pin.gsu.edu/organization/ai-club" target="_blank" rel="noopener noreferrer">Join Us Today</Link>  
             </button>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="flex flex-col items-center text-white/80 hover:text-white transition-colors cursor-pointer">
-          <span className="text-sm font-medium mb-2">Scroll to explore</span>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </div>
     </section>

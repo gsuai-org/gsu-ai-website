@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { client } from '@/lib/sanity'
+import Footer from './Footer'
 
 interface ContactData {
   discord?: string
@@ -189,13 +190,8 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="text-center pt-8 border-t border-white/20">
-          <p className="text-gsu-blue-200 text-base">
-            © 2025 GSU AI Club
-          </p>
-        </div>
       </div>
+      <Footer />
     </section>
   )
 }

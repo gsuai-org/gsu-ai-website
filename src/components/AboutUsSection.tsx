@@ -182,21 +182,6 @@ export default function AboutUsSection() {
             </div>
           ))}
         </div>
-
-        {/* Join Us CTA */}
-        <div className="mt-20 text-center">
-          <div className="card-elevated p-8 lg:p-12 max-w-3xl mx-auto">
-            <h3 className="font-heading font-bold text-3xl text-gsu-blue-800 mb-6">
-              Want to Join Our Leadership Team?
-            </h3>
-            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              We&apos;re always looking for passionate students to help lead our organization and make a difference in the AI community at GSU.
-            </p>
-            <button className="btn-secondary text-lg px-8 py-4">
-              Learn About Leadership Opportunities
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   )
