@@ -12,7 +12,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 text-gsu-white py-12 border-t border-gsu-white/20">
+    <footer className="text-gsu-white py-12 border-t border-gsu-white/20">
       <div className="container-custom">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Section Map */}

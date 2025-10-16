@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { client } from '@/lib/sanity'
+import DottedBackground from './DottedBackground'
 
 interface Tag {
   text: string
@@ -96,7 +97,7 @@ export default function AboutSection() {
 
   if (!aboutData) {
     return (
-      <section id="about-info" className="section-padding bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 relative overflow-hidden">
+      <section id="about-info" className="section-padding  relative overflow-hidden">
         <DottedBackground />
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
@@ -113,7 +114,7 @@ export default function AboutSection() {
   }
 
   return (
-    <section id="about-info" className="section-padding bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 relative overflow-hidden">
+    <section id="about-info" className="section-padding relative overflow-hidden">
       <div className="container-custom">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gsu-white mb-8 leading-tight">

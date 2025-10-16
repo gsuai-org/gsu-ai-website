@@ -68,7 +68,7 @@ export default function MissionSection() {
   }
 
   return (
-    <section id="mission" className="section-padding bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 relative overflow-hidden">
+    <section id="mission" className="section-padding relative overflow-hidden">
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-20">

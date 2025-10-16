@@ -124,7 +124,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600 text-gsu-white relative overflow-hidden">
+    <section id="contact" className="section-padding text-gsu-white relative overflow-hidden">
       
       <div className="container-custom relative z-10">
         {/* Header */}

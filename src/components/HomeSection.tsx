@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { client } from '@/lib/sanity'
 import Link from 'next/link'
-import ParticleBackground from './ParticleBackground'
 
 interface HomeData {
   title: string
@@ -53,7 +52,7 @@ export default function HomeSection() {
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gsu-blue-900 via-gsu-purple-900 to-gsu-black-600">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Particle Background - DISABLED */}
       {/* <div className="absolute inset-0 z-[-1]">
         <ParticleBackground />
