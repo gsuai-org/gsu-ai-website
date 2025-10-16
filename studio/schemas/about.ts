@@ -1,4 +1,6 @@
-export default {
+import {defineType} from 'sanity'
+
+export default defineType({
   name: 'about',
   title: 'About Us',
   type: 'document',
@@ -14,7 +16,7 @@ export default {
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      description: 'Tags with icons to display in a carousel',
+      description: 'Tags with icons to display in the about us section',
       of: [
         {
           type: 'object',
@@ -42,5 +44,5 @@ export default {
       ]
     }
   ]
-}
+})
 
