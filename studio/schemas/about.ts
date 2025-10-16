@@ -29,7 +29,7 @@ export default {
               name: 'icon',
               title: 'Icon SVG',
               type: 'text',
-              description: 'Paste the SVG code for the icon (e.g., from heroicons.com)',
+              description: 'Paste the SVG code for the icon (e.g., from https://www.svgrepo.com/)',
               validation: (Rule: any) => Rule.required()
             }
           ],
