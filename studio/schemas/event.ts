@@ -38,6 +38,15 @@ export default defineType({
         hotspot: true,
       },
     },
+    {
+      name: 'link',
+      title: 'Event Link',
+      type: 'url',
+      description: 'External link for more information (e.g., registration page, event details)',
+      validation: (rule) => rule.uri({
+        scheme: ['http', 'https'],
+      }),
+    },
   ],
   orderings: [
     {

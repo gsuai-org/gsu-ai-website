@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo - No Pill Shape */}
-          <Link href="#home" className="flex items-center space-x-2 group">
+          <Link href="/" className="flex items-center space-x-2 group">
             {logoImage ? (
               <div className="w-7 h-7 rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-300">
                 <Image

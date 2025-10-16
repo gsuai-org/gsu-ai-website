@@ -14,7 +14,8 @@ const EVENTS_QUERY = `*[_type == "event"] | order(date desc) {
   date,
   location,
   description,
-  bannerImage
+  bannerImage,
+  link
 }`
 
 interface Event {
@@ -23,6 +24,7 @@ interface Event {
   date: string
   location: string
   description: string
+  link?: string
   bannerImage?: {
     asset: {
       _ref: string
@@ -248,25 +250,49 @@ export default function EventsPage() {
                         {event.description}
                       </p>
 
-                      <Link
-                        href={`/events/${event._id}`}
-                        className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
-                      >
-                        Learn More
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                      {event.link ? (
+                        <a
+                          href={event.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </Link>
+                          Learn More
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </a>
+                      ) : (
+                        <Link
+                          href={`/events/${event._id}`}
+                          className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
+                        >
+                          Learn More
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </Link>
+                      )}
                     </div>
                   </article>
                 ))}

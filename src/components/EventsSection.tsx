@@ -11,7 +11,8 @@ const EVENTS_QUERY = `*[_type == "event"] | order(date desc) {
   date,
   location,
   description,
-  bannerImage
+  bannerImage,
+  link
 }`
 
 interface Event {
@@ -20,6 +21,7 @@ interface Event {
   date: string
   location: string
   description: string
+  link?: string
   bannerImage?: {
     asset: {
       _ref: string
@@ -54,7 +56,7 @@ export default function EventsSection() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-gsu-white mb-4">
-              Upcoming Events
+              What&apos;s Happening?
             </h2>
             <p className="text-xl text-gsu-white/80 max-w-3xl mx-auto mb-8">
               No events are currently scheduled. Check back soon for updates!
@@ -114,10 +116,10 @@ export default function EventsSection() {
         <div className="text-center mb-20">
           <div className="animate-slide-up">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gsu-white mb-6 leading-tight">
-              Upcoming Events
+              What&apos;s Happening?
             </h2>
             <p className="text-xl lg:text-2xl text-gsu-white/80 max-w-4xl mx-auto leading-relaxed">
-              Join us for workshops, speaker sessions, and hands-on learning experiences
+              stay updated with the latest events and activities happening
             </p>
           </div>
         </div>
@@ -182,25 +184,49 @@ export default function EventsSection() {
                   {event.description}
                 </p>
 
-                <Link
-                  href={`/events/${event._id}`}
-                  className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
-                >
-                  Learn More
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {event.link ? (
+                  <a
+                    href={event.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
+                    Learn More
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                ) : (
+                  <Link
+                    href={`/events/${event._id}`}
+                    className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
+                  >
+                    Learn More
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                )}
               </div>
             </article>
           ))}
