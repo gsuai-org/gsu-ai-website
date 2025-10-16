@@ -2,8 +2,17 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { client, urlForImage } from '@/lib/sanity'
 import Link from 'next/link'
+import { client, urlForImage } from '@/lib/sanity'
+
+const EVENTS_QUERY = `*[_type == "event"] | order(date desc) {
+  _id,
+  title,
+  date,
+  location,
+  description,
+  bannerImage
+}`
 
 interface Event {
   _id: string
@@ -27,16 +36,7 @@ export default function EventsSection() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const data = await client.fetch(
-          `*[_type == "event"] | order(date desc)[0..2] {
-            _id,
-            title,
-            date,
-            location,
-            description,
-            bannerImage
-          }`
-        )
+        const data = await client.fetch(EVENTS_QUERY)
         setEvents(data)
       } catch (error) {
         console.error('Error fetching events:', error)
@@ -105,6 +105,8 @@ export default function EventsSection() {
     )
   }
 
+  const latestEvents = events.slice(0, 3)
+
   return (
     <section id="events" className="section-padding relative overflow-hidden">
       <div className="container-custom">
@@ -122,8 +124,11 @@ export default function EventsSection() {
 
         {/* Events Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          {events.map((event) => (
-            <div key={event._id} className="glass-card rounded-2xl overflow-hidden group">
+          {latestEvents.map((event) => (
+            <article
+              key={event._id}
+              className="glass-card rounded-2xl overflow-hidden group"
+            >
               {/* Event Image */}
               <div className="relative h-56 bg-gradient-to-br from-gsu-blue-500 to-gsu-blue-700 overflow-hidden">
                 {event.bannerImage ? (
@@ -177,27 +182,37 @@ export default function EventsSection() {
                   {event.description}
                 </p>
 
-                <button className="w-full glass-effect text-gsu-white hover:text-gsu-lime-500 px-4 py-3 rounded-xl font-semibold hover:border-gsu-lime-500/50 transition-all duration-200 text-center">
+                <Link
+                  href={`/events/${event._id}`}
+                  className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full text-gsu-white/90 font-semibold hover:text-gsu-lime-500 transition-all duration-200"
+                >
                   Learn More
-                </button>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="glass-card rounded-3xl p-8 lg:p-12 max-w-2xl mx-auto">
-            <h3 className="font-heading font-bold text-2xl text-gsu-white mb-4">
-              Stay Updated
-            </h3>
-            <p className="text-gsu-white/70 text-lg mb-6 leading-relaxed">
-              Want to stay updated on all our events and announcements?
-            </p>
-            <Link href="/newsletter" target="_blank" rel="noopener noreferrer" className="inline-block glass-effect text-gsu-white hover:text-gsu-lime-500 px-4 py-3 rounded-xl font-semibold hover:border-gsu-lime-500/50 transition-all duration-200">
-              Join Our Newsletter
-            </Link>
-          </div>
+        <div className="text-center mt-16 space-y-6">
+          <Link href="/events" rel="noopener noreferrer">
+            <button className="inline-flex items-center gap-2 glass-effect px-6 py-3 rounded-full text-gsu-white font-semibold hover:text-gsu-lime-500 transition-all duration-200">
+              View All Events 
+            </button>
+          </Link>
         </div>
       </div>
     </section>

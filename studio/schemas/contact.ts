@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     {
+      name: 'email',
+      title: 'Contact Email',
+      type: 'email',
+      validation: (rule) => rule.email(),
+    },
+    {
       name: 'discord',
       title: 'Discord Server URL',
       type: 'url',

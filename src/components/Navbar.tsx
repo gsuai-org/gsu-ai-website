@@ -36,11 +36,9 @@ export default function Navbar() {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Mission', href: '#mission' },
-    { name: 'Events', href: '#events' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'Events', href: '/events' },
+    { name: 'Contact', href: '/contact' }
   ]
 
   return (
@@ -114,6 +112,11 @@ export default function Navbar() {
               )}
             </svg>
           </button>
+        </div>
+
+        {/* Decorative Line Below Nav Items */}
+        <div className="hidden lg:flex justify-center mt-4">
+          <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/15 via-gsu-lime-500/10 to-transparent"></div>
         </div>
 
         {/* Compact Mobile Menu */}
