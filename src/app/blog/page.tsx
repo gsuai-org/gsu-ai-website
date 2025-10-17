@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from 'next/link' 
 import { client, urlForImage } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
