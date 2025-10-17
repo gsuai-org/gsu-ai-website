@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/gsuai-org/gsu-ai-website#readme",
   "dependencies": {
+    "@portabletext/react": "^4.0.3",
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "@types/node": "^24.7.1",

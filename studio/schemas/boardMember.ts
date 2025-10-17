@@ -12,6 +12,26 @@ export default defineType({
       validation: (rule) => rule.required().max(100),
     },
     {
+      name: 'position',
+      title: 'Position/Role',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'President', value: 'president'},
+          {title: 'Vice President', value: 'vice-president'},
+          {title: 'Secretary', value: 'secretary'},
+          {title: 'Treasurer', value: 'treasurer'},
+          {title: 'Technical Lead', value: 'technical-lead'},
+          {title: 'Events Coordinator', value: 'events-coordinator'},
+          {title: 'Marketing Director', value: 'marketing-director'},
+          {title: 'Outreach Coordinator', value: 'outreach-coordinator'},
+          {title: 'Board Member', value: 'board-member'},
+        ],
+        layout: 'dropdown',
+      },
+      validation: (rule) => rule.required(),
+    },
+    {
       name: 'year',
       title: 'Academic Year',
       type: 'string',
@@ -49,28 +69,34 @@ export default defineType({
       validation: (rule) => rule.required().email(),
     },
     {
-      name: 'profileImage',
-      title: 'Profile Photo',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      validation: (rule) => rule.required(),
+      name: 'bio',
+      title: 'Bio',
+      type: 'text',
+      rows: 4,
+      description: 'A short biography or description of the board member',
+      validation: (rule) => rule.max(300),
+    },
+    {
+      name: 'interests',
+      title: 'Interests',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Areas of interest or expertise (e.g., Machine Learning, Web Development, etc.)',
+      validation: (rule) => rule.max(6),
     },
   ],
   preview: {
     select: {
       name: 'name',
+      position: 'position',
       year: 'year',
       major: 'major',
-      media: 'profileImage',
     },
     prepare(selection) {
-      const {name, year, major} = selection
+      const {name, position, year, major} = selection
       return {
         title: name,
-        subtitle: `${year} • ${major}`,
-        media: selection.media,
+        subtitle: `${position} • ${year} • ${major}`,
       }
     },
   },

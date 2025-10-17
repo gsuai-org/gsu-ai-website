@@ -9,6 +9,7 @@ import eventSchema from './schemas/event'
 import boardMemberSchema from './schemas/boardMember'
 import contactSchema from './schemas/contact'
 import aboutSchema from './schemas/about'
+import blogSchema from './schemas/blog'
 
 export default defineConfig({
   name: 'gsu-ai-club-studio',
@@ -27,6 +28,7 @@ export default defineConfig({
       boardMemberSchema,
       contactSchema,
       aboutSchema,
+      blogSchema,
     ],
   },
 })
