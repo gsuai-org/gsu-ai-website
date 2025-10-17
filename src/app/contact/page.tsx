@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { client } from '@/lib/sanity'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -151,9 +152,9 @@ export default function ContactPage() {
                     {firstRowLinks.length > 0 && (
                       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                         {firstRowLinks.map((link) => (
-                          <a
+                          <Link
                             key={link.name}
-                            href={link.url}
+                            href={link.url!}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="glass-card rounded-2xl p-8 group hover:scale-105 transition-all duration-300 block"
@@ -171,7 +172,7 @@ export default function ContactPage() {
                                 {link.description}
                               </p>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -180,9 +181,9 @@ export default function ContactPage() {
                     {secondRowLinks.length > 0 && (
                       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         {secondRowLinks.map((link) => (
-                          <a
+                          <Link
                             key={link.name}
-                            href={link.url}
+                            href={link.url!}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="glass-card rounded-2xl p-8 group hover:scale-105 transition-all duration-300 block"
@@ -200,7 +201,7 @@ export default function ContactPage() {
                                 {link.description}
                               </p>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
