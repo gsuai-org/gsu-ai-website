@@ -91,7 +91,7 @@ export default function Navbar() {
               Blog
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="glass-effect-strong rounded-full px-5 py-2 text-gsu-lime-500 hover:text-gsu-white font-semibold text-sm hover:scale-105 transform transition-all duration-300 border border-gsu-lime-500/30"
             >
               Join Us
